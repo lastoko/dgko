@@ -1,0 +1,84 @@
+
+body {
+  margin: 0;
+  font-family: 'Cormorant Garamond', serif;
+  background-color: #f5f3e7;
+  color: #2b2b2b;
+}
+
+#container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+h1 {
+  font-size: 3rem;
+  color: #0e3c58;
+  margin-bottom: 1rem;
+}
+
+.intro {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.map-container {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.map-container img {
+  max-width: 100%;
+  border: 3px solid #0e3c58;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+.progress {
+  margin-top: 2rem;
+}
+
+#lights {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.light {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #ccc;
+  border: 2px solid #888;
+  transition: background-color 0.3s;
+}
+
+.light.on {
+  background-color: gold;
+  box-shadow: 0 0 10px gold;
+}
+
+#final-button {
+  margin-top: 2rem;
+}
+
+#final-button button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: #0e3c58;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: not-allowed;
+  opacity: 0.5;
+  transition: all 0.3s ease;
+}
+
+#final-button button.active {
+  cursor: pointer;
+  opacity: 1;
+}

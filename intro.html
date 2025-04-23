@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thalassara Kayıp Uygarlık</title>
+
+  <style>
+    @font-face {
+      font-family: 'Diogenes';
+      src: url('assets/DIOGENES.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    #background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 200%;
+      background: url('assets/background.png') no-repeat center center;
+      background-size: cover;
+      z-index: -1;
+    }
+
+    #intro {
+      padding: 20px;
+      text-align: left;
+      z-index: 10;
+      max-width: 90%;
+      width: 800px;
+      box-sizing: border-box;
+      padding-top: 5px;
+    }
+
+    #intro h2 {
+      font-size: 3.4rem;
+      margin-bottom: 1rem;
+      color: #FFD9CC;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7), 0 0 15px rgba(255, 232, 163, 0.5);
+      letter-spacing: 1.8px;
+      font-family: 'Diogenes', serif;
+    }
+
+    #intro p {
+      font-size: 1.8rem;
+      margin: 0.7rem 0;
+      line-height: 1.4;
+      color: #FFE8A3;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 1);
+      font-family: 'Diogenes', serif;
+    }
+
+    #intro button {
+      padding: 20px 64px;
+      font-size: 2.5rem;
+      background: linear-gradient(145deg, #1b4d5c, #092c3a);
+      color: #FFE8A3;
+      font-family: 'Diogenes', serif;
+      border: 2px solid #FFE8A3;
+      border-radius: 15px;
+      cursor: pointer;
+      margin-top: 2rem;
+      box-shadow: 0 0 12px rgba(255, 232, 163, 0.4), inset 0 0 8px rgba(255, 232, 163, 0.1);
+      transition: all 0.3s ease;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+      letter-spacing: 5px;
+    }
+
+    #intro button:hover {
+      background: linear-gradient(145deg, #215f72, #0f3e4e);
+      box-shadow: 0 0 20px rgba(255, 232, 163, 0.6), 0 0 8px rgba(0, 0, 0, 0.6);
+      transform: scale(1.06);
+    }
+
+  </style>
+</head>
+<body>
+  <div id="background"></div>
+
+  <div id="intro">
+    <h2>Kayıp Uygarlık Thalassara</h2>
+    <p>Yüzyıllar önce kaybolmuş bir uygarlık… <strong>Thalassara</strong>, mitolojilerde kaybolmuş bir uygarlık olarak teorilere rağmen, hiçbir yazılı kaynakta yer almaz. En azından ta ki bir arkeolog, bu kayıp uygarlığa dair ilk izleri keşfedene kadar.</p>
+    <p>Bir yaz günü, arkeolog olan Cansu, Yunan adalarından birine tatil yapmak üzere geldi. Arkadaşlarıyla birlikte sahilde vakit geçirirken, meraklı doğası onu adanın pek adım atılmamış taraflarına sürükledi. Ormanın derinliklerinde dolaşırken adanın merkezinde bulunan binlerce yıl önce patlamış ve artık aktif olmayan volkanik dağın eteklerinde ufak bir mağara girişi gördü. İçeri girdiğinde ise mağaranın duvarlarına kazınmış yazılara rastladı. Eski Yunan dilinde, silinmiş harfler ve anlamı kaybolmuş kelimeler… Ama bir kelime net bir şekilde okunuyordu; <strong>Thalassara</strong>.</p>
+    <p>Cansu, bu kelimeyi daha önceki araştırmalarda da duymuştu. Yüzyıllar önce kaybolmuş bir uygarlık… Ancak bu uygarlıkla ilgili teorilerden başka hiçbir kaynak yoktu. Yunan adalarında bu kaybolmuş uygarlığın izlerini bulabileceğine inanıyordu. Fakat bu antik uygarlığın kalıntıları hiçbir arkeolog tarafından bulunamamıştı.</p>
+    <p>Günlerce süren araştırmalar ve keşifler sonunda Cansu, <strong>Thalassara</strong>'nın gizeminin ardında bir dizi ipucu buldu. Ama ne yazık ki, bu ipuçları dolu maceralar ve bulmacalar içeriyor. Şimdi maceraya başla ve ipuçlarını takip edip, bu kayıp uygarlığın kalıntılarına ulaş.</p>
+    <button onclick="startGame()">HAZIR</button>
+  </div>
+
+<audio id="music" loop>
+  <source src="assets/intromusic.mp3" type="audio/mp3">
+</audio>
+
+<script>
+  const music = document.getElementById('music');
+  let savedTime = parseFloat(sessionStorage.getItem('musicCurrentTime'));
+
+  // Ayarları uygula
+  music.volume = 0.2;
+
+  if (!isNaN(savedTime)) {
+    music.currentTime = savedTime;
+  }
+
+  music.play().catch(err => {
+    console.warn("Müzik otomatik başlamadı:", err);
+  });
+
+  // Sayfa değişmeden önce zamanı kaydet
+  window.addEventListener('beforeunload', () => {
+    sessionStorage.setItem('musicCurrentTime', music.currentTime);
+  });
+
+	function startGame() {
+  window.location.href = "main.html";
+}
+
+</script>
+
+</body>
+</html>

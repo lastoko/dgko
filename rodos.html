@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Thalassara - Rodos Adası</title>
+  <style>
+    @font-face {
+      font-family: 'Diogenes';
+      src: url('assets/DIOGENES.ttf') format('truetype');
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Diogenes', serif;
+      background: url('assets/main-bg.png') no-repeat center center;
+      background-size: cover;
+      color: #FFE8A3;
+      padding: 40px;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3.5rem;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
+      margin-bottom: 20px;
+    }
+
+    .island-img {
+      width: 80%;
+      max-width: 800px;
+      border: 2px solid #FFD9A0;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(255, 232, 163, 0.5);
+      margin-bottom: 30px;
+    }
+
+    .info {
+      font-size: 1.6rem;
+      line-height: 1.6;
+      max-width: 900px;
+      margin: 0 auto;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+    }
+
+    .back-button {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 12px 24px;
+      background: linear-gradient(145deg, #1b4d5c, #092c3a);
+      color: #FFE8A3;
+      border: 2px solid #FFE8A3;
+      border-radius: 12px;
+      font-size: 1.4rem;
+      text-decoration: none;
+      box-shadow: 0 0 12px rgba(255, 232, 163, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .back-button:hover {
+      background: linear-gradient(145deg, #215f72, #0f3e4e);
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255, 232, 163, 0.6);
+    }
+  </style>
+</head>
+<body>
+  <h1>Rodos Adası</h1>
+
+  <img src="assets/rodos.png" alt="Rodos Adası Görseli" class="island-img" />
+
+  <div class="info">
+    <p>
+      Rodos, Ege Denizi'nde yer alan ve tarihi zenginliğiyle bilinen büyüleyici bir adadır.
+      Antik çağlardan beri farklı uygarlıklara ev sahipliği yapmıştır. Altın madenleri, mermer ocakları
+      ve mitolojik hikâyeleriyle Thalassara uygarlığına dair bazı izlerin burada bulunduğu düşünülmektedir.
+    </p>
+    <p>
+      Haritada bu adaya tıklaman, seni bu bölgeye dair ipuçlarına bir adım daha yaklaştıracak.
+    </p>
+  </div>
+
+  <a href="main.html" class="back-button">⟵ Haritaya Dön</a>
+</body>
+</html>

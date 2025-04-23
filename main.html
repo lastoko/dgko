@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thalassara - Ana Sayfa</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    @font-face {
+      font-family: 'Diogenes';
+      src: url('assets/DIOGENES.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Diogenes', serif;
+      background: linear-gradient(to bottom, #3b1c0e, #5a2b12, #6f3e1b);
+      background-attachment: fixed;
+      color: #FFE8A3;
+    }
+
+    .container {
+      padding: 40px;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 4rem;
+      text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.6rem;
+      line-height: 1.6;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 1);
+    }
+
+    .map-frame {
+      background: url('assets/map-frame.png') no-repeat center center;
+      background-size: contain;
+      padding: 40px;
+      display: inline-block;
+    }
+
+    .map-container {
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      border: 2px solid #FFE8A3;
+      box-shadow: 0 0 12px rgba(255, 232, 163, 0.4);
+    }
+
+    .map-container img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .description {
+      font-size: 1.6rem;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    }
+
+  .hotspot {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background: radial-gradient(circle, #ffe28a, #ffb94a);
+  border: 2px solid #FFD700;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(255, 208, 115, 0.8);
+  transition: 0.3s ease;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.hotspot:hover {
+  transform: scale(1.3);
+  box-shadow: 0 0 25px rgba(255, 234, 174, 1), 0 0 10px rgba(255, 208, 115, 0.8);
+}
+
+
+    .sound-control {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: linear-gradient(145deg, #1b4d5c, #092c3a);
+      color: #FFE8A3;
+      font-family: 'Diogenes', serif;
+      border: 2px solid #FFE8A3;
+      border-radius: 15px;
+      cursor: pointer;
+      padding: 10px 20px;
+      font-size: 1.8rem;
+      box-shadow: 0 0 12px rgba(255, 232, 163, 0.4), inset 0 0 8px rgba(255, 232, 163, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .sound-control:hover {
+      background: linear-gradient(145deg, #215f72, #0f3e4e);
+      box-shadow: 0 0 20px rgba(255, 232, 163, 0.6), 0 0 8px rgba(0, 0, 0, 0.6);
+      transform: scale(1.06);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Thalassara Ana Sayfa</h1>
+    <p class="description">Harita üzerinde kaybolan Thalassara uygarlığının izlerini keşfedecek ve farklı bölgeleri ziyaret edeceksiniz. İlerleyen bölümlerde bu harita etkileşimli hale gelecektir.</p>
+
+    <div class="map-frame">
+      <div class="map-container">
+        <img src="assets/adalar.png" alt="Ege Adaları Haritası" usemap="#adaharitasi">
+        <!-- Hotspot Butonlar -->
+        <a href="thasos.html" class="hotspot" style="top: 100px; left: 151px;"></a>
+        <a href="midilli.html" class="hotspot" style="top: 120px; left: 530px;"></a>
+        <a href="samos.html" class="hotspot" style="top: 264px; left: 330px;"></a>
+        <a href="sakiz.html" class="hotspot" style="top: 295px; left: 610px;"></a>
+        <a href="kos.html" class="hotspot" style="top: 433px; left: 200px;"></a>
+        <a href="mikonos.html" class="hotspot" style="top: 476px; left: 443px;"></a>
+        <a href="rodos.html" class="hotspot" style="top: 590px; left: 630px;"></a>
+        <a href="santorini.html" class="hotspot" style="top: 642px; left: 190px;"></a>
+        <a href="girit.html" class="hotspot" style="top: 783px; left: 468px;"></a>
+        <!-- Area map kalabilir (görme engelliler için erişilebilirlik) -->
+        <map name="adaharitasi">
+
+          <!-- <area> etiketleri duruyor ama artık görünmüyor -->
+        </map>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ses Kontrolü -->
+  <div class="music-controls">
+    <button id="soundToggle" class="sound-control">🔊</button>
+  </div>
+
+  <audio id="music" loop autoplay>
+    <source src="assets/intromusic.mp3" type="audio/mp3">
+    Tarayıcınız ses öğesini desteklemiyor.
+  </audio>
+
+  <script>
+    const music = document.getElementById('music');
+    const soundToggle = document.getElementById('soundToggle');
+    let isMuted = localStorage.getItem('isMuted') === 'true';
+
+    music.volume = 0.2;
+    music.muted = isMuted;
+    soundToggle.textContent = isMuted ? '🔇' : '🔊';
+
+    soundToggle.addEventListener('click', () => {
+      isMuted = !isMuted;
+      music.muted = isMuted;
+      localStorage.setItem('isMuted', isMuted);
+      soundToggle.textContent = isMuted ? '🔇' : '🔊';
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      const savedTime = parseFloat(localStorage.getItem('musicCurrentTime'));
+      if (!isNaN(savedTime)) {
+        music.currentTime = savedTime;
+      }
+      music.play();
+    });
+  </script>
+</body>
+</html>
